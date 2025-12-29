@@ -4,6 +4,6 @@ import { Controller, Get } from '@nestjs/common';
 export class UserController {
     @Get()
     getUser(){
-        return 'User data fetching sucessfully almost!!';
+        return 'User data fetching sucessfully almost!';
     }
 }
