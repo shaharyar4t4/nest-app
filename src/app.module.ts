@@ -5,9 +5,10 @@ import { UserController } from './user/user.controller';
 import { ProductService } from './product/product.service';
 import { ProductController } from './product/product.controller';
 import { EmployeeModule } from './employee/employee.module';
+import { StudentModule } from './student/student.module';
 
 @Module({
-  imports: [EmployeeModule], // make sure the new module is import on app
+  imports: [EmployeeModule, StudentModule], // make sure the new module is import on app
   controllers: [AppController, UserController, ProductController],
   providers: [AppService, ProductService],
 })

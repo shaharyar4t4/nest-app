@@ -3,7 +3,9 @@ import { EmployeeService } from './employee.service';
 
 @Controller('employee')
 export class EmployeeController {
-    constructor(private readonly employeeservice: EmployeeService){}
+  // this is basically a Dependency injection
+
+  constructor(private readonly employeeservice: EmployeeService){}
 
     @Get()
      getEmployees(){
