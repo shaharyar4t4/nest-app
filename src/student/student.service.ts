@@ -57,8 +57,11 @@ export class StudentService {
     // DELETE Method 
     // Delete is help to remove the data by using the unique id
     deletestudent(id: number){
-        const student = this.student.find((s) => s.id === id);
-        if(!student) throw new NotFoundException('Student not found!');
-        // const Delete
+        const index = this.student.findIndex((s)=> s.id === id);
+        if(index === -1) throw new NotFoundException('Student not found!');
+        // splice method is help to remove the data from array
+        const deleted = this.student.splice(index, 1 ); 
+        // index 1 means only one data will be deleted
+        return {message: 'Student deleted successfully', student: deleted[0]};
     }
 }
