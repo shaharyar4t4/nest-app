@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
+import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
 import { CustomersService } from './customers.service';
 import { CreateCustomerDTO } from './dto/create-customer.dto';
 
@@ -19,4 +19,8 @@ export class CustomersController {
         return this.customerService.addCustomer(createCustomerDTO);
     }
 
+    @Put(':id')
+    updateCustomer(@Param('id') id: string, @Body() createCustomerDTO: CreateCustomerDTO){
+        return this.customerService.updateCustomer(Number(id),createCustomerDTO);
+    }
 }

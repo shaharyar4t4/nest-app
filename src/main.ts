@@ -6,6 +6,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
   app.useGlobalPipes(new ValidationPipe(
     {
+      // whiteList this command remove extra fields that are not in dto
       whitelist: true,
       //forbidNonWhitelisted this command show the error 
       forbidNonWhitelisted: true
