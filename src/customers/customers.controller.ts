@@ -1,4 +1,4 @@
-import { Body, Controller, Get, Param, Post, Put } from '@nestjs/common';
+import { Body, Controller, Get, Param, Patch, Post, Put } from '@nestjs/common';
 import { CustomersService } from './customers.service';
 import { CreateCustomerDTO } from './dto/create-customer.dto';
 
@@ -12,6 +12,10 @@ export class CustomersController {
         return this.customerService.getAllCustomers();
     }
 
+    @Get(':id')
+    getCustomerbyId(@Param('id') id: string){
+        return this.customerService.getAllCustomerId(Number(id));
+    }
 
     // Now We used the DTO (CreateCustomerDTO) for validation 
     @Post()
@@ -22,5 +26,10 @@ export class CustomersController {
     @Put(':id')
     updateCustomer(@Param('id') id: string, @Body() createCustomerDTO: CreateCustomerDTO){
         return this.customerService.updateCustomer(Number(id),createCustomerDTO);
+    }
+
+    @Patch(':id')
+    patchCustomer(@Param('id') id: string, @Body() createCustomerDTO: CreateCustomerDTO){
+        return this.customerService.patchCustomer(Number(id), createCustomerDTO);
     }
 }
