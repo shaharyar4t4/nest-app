@@ -51,4 +51,14 @@ export class CustomersService {
         return customer;
     }
 
+    //-- Delete Method --//
+    // this method is help to delete the data 
+    deleteCustomer(id: number){
+        const index = this.customers.findIndex((s)=> s.id === id);
+        if(index === -1) throw new NotFoundException('Customer is not Found');
+        const deleted = this.customers.splice(index, 1);
+        return{message: 'Customer deleted sucessfully', CreateCustomerDTO: deleted[0]};
+        
+    }
+
 }
