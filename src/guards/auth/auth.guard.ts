@@ -9,7 +9,7 @@ export class AuthGuard implements CanActivate {
     const request = context.switchToHttp().getRequest();
     //authorization means when user sent any data they will be "key", "API value"
     const authHeader = request.headers['authorization'];
-    return authHeader === 'Bearer my-secret-token';
-    return true;
+    return authHeader === 'CSC-21F-@116';
+  
   }
 }

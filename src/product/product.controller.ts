@@ -1,5 +1,6 @@
-import { Controller, Get, Param } from '@nestjs/common';
+import { Controller, Get, Param, UseGuards } from '@nestjs/common';
 import { ProductService } from './product.service';
+import { AuthGuard } from 'src/guards/auth/auth.guard';
 
 @Controller('product') // product act as "/product"
 export class ProductController {
@@ -7,6 +8,8 @@ export class ProductController {
 
       // this controller ---> get all product on main pages
       @Get()
+      // useGuard is a decorator --->  which help to give a user acess or not
+      @UseGuards(AuthGuard)
         getProducts(){
             return this.productservice.getAllProduct();
         }
