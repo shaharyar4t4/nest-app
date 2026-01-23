@@ -9,10 +9,11 @@ import { StudentModule } from './student/student.module';
 import { CustomersModule } from './customers/customers.module';
 import { MyNameController } from './my-name/my-name.controller';
 import { AgeCheckerController } from './check/age-checker/age-checker.controller';
+import { UserRolesController } from './user-roles/user-roles.controller';
 
 @Module({
   imports: [EmployeeModule, StudentModule, CustomersModule], // make sure the new module is import on app
-  controllers: [AppController, UserController, ProductController, MyNameController, AgeCheckerController],
+  controllers: [AppController, UserController, ProductController, MyNameController, AgeCheckerController, UserRolesController],
   providers: [AppService, ProductService],
 })
 export class AppModule {}
