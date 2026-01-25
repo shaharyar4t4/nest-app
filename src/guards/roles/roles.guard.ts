@@ -29,7 +29,7 @@ export class RolesGuard implements CanActivate {
       headers: Record<string, string>
     }>();
     // this custom Role key "x-user-role" for testing purpos
-    const userRole = request.headers['CSC-21F-1167'] as Role;
+    const userRole = request.headers['csc21f1167'] as Role;
     return requriedRoles.includes(userRole);
   }
 }
