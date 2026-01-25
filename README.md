@@ -96,3 +96,17 @@ Nest is an MIT-licensed open source project. It can grow thanks to the sponsors 
 ## License
 
 Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+
+## Topice: Exception Filter 
+
+Handle errors or exception like( Not found, forbidding error)
+
+nest js allow the custom exception error
+
+it is use in controller, any method or globally like (main.ts)
+
+@Catch() decorator is define any type of exception handle
+
+
+cmd
+nest g filter filter/http-exception
