@@ -1,4 +1,4 @@
-import { Module } from '@nestjs/common';
+import { MiddlewareConsumer, Module, NestModule } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { UserController } from './user/user.controller';
@@ -11,10 +11,19 @@ import { MyNameController } from './my-name/my-name.controller';
 import { AgeCheckerController } from './check/age-checker/age-checker.controller';
 import { UserRolesController } from './user-roles/user-roles.controller';
 import { ExceptionController } from './exception/exception.controller';
+import { LoggerMiddleware } from './middleware/logger/logger.middleware';
 
 @Module({
   imports: [EmployeeModule, StudentModule, CustomersModule], // make sure the new module is import on app
   controllers: [AppController, UserController, ProductController, MyNameController, AgeCheckerController, UserRolesController, ExceptionController],
   providers: [AppService, ProductService],
 })
-export class AppModule {}
+export class AppModule implements NestModule{
+  // the middle ware consumer means which part need to implement the middle ware 
+  // Inshort client side koi bhai end-point ko acecss karya tu phela middleware chala gya then controller or koi service chala gi 
+  
+  configure(consumer: MiddlewareConsumer) {
+    consumer.apply(LoggerMiddleware).forRoutes('*');
+
+  }
+}
