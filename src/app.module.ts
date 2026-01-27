@@ -14,9 +14,12 @@ import { ExceptionController } from './exception/exception.controller';
 import { LoggerMiddleware } from './middleware/logger/logger.middleware';
 import { DatabaseService } from './database/database.service';
 import { DatabaseController } from './database/database.controller';
+import { ConfigModule } from '@nestjs/config';
 
 @Module({
-  imports: [EmployeeModule, StudentModule, CustomersModule], // make sure the new module is import on app
+  imports: [EmployeeModule, StudentModule, CustomersModule, ConfigModule.forRoot({
+    isGlobal: true,
+  })], // make sure the new module is import on app
   controllers: [AppController, UserController, ProductController, MyNameController, AgeCheckerController, UserRolesController, ExceptionController, DatabaseController],
   providers: [AppService, ProductService, DatabaseService],
 })
