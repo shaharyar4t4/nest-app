@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 
-@Injectable()
+@Injectable() // this is allow to any controller to acess this sevices 
 export class ProductService {
     // this is private method
     private products = [

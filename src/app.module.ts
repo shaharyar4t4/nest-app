@@ -12,11 +12,13 @@ import { AgeCheckerController } from './check/age-checker/age-checker.controller
 import { UserRolesController } from './user-roles/user-roles.controller';
 import { ExceptionController } from './exception/exception.controller';
 import { LoggerMiddleware } from './middleware/logger/logger.middleware';
+import { DatabaseService } from './database/database.service';
+import { DatabaseController } from './database/database.controller';
 
 @Module({
   imports: [EmployeeModule, StudentModule, CustomersModule], // make sure the new module is import on app
-  controllers: [AppController, UserController, ProductController, MyNameController, AgeCheckerController, UserRolesController, ExceptionController],
-  providers: [AppService, ProductService],
+  controllers: [AppController, UserController, ProductController, MyNameController, AgeCheckerController, UserRolesController, ExceptionController, DatabaseController],
+  providers: [AppService, ProductService, DatabaseService],
 })
 export class AppModule implements NestModule{
   // the middle ware consumer means which part need to implement the middle ware 

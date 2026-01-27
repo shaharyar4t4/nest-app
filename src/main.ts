@@ -13,5 +13,8 @@ async function bootstrap() {
     }
   ))
   await app.listen(process.env.PORT ?? 3000);
+  // nest js has not capacity to access the special method/hooks so we need tu add the below line in main.ts
+  app.enableShutdownHooks();
 }
+
 bootstrap();

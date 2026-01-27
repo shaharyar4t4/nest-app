@@ -28,7 +28,8 @@ export class RolesGuard implements CanActivate {
     const request = context.switchToHttp().getRequest<{
       headers: Record<string, string>
     }>();
-    // this custom Role key "x-user-role" for testing purpos
+    // this custom Role key "x-user-role" for testing purpose
+    // add the Header like  csc21f1167  value= admin
     const userRole = request.headers['csc21f1167'] as Role;
     return requriedRoles.includes(userRole);
   }
